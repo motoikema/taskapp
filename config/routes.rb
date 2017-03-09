@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :projects
+  resources :projects do
+    resources :tasks, only: [:create, :destroy]
+  end
+
   root 'projects#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
